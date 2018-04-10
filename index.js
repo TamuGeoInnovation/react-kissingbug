@@ -9,7 +9,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 var appColors = require('./components/appStyles.js')
 
 import ContactForm from './scenes/ContactForm'
-// import ContactFormWithAttachment from './scenes/ContactFormWithAttachment'
+import ContactFormWithAttachment from './scenes/ContactFormWithAttachment'
 // import PhotoLibrary from './scenes/PhotoLibrary'
 import Home from './scenes/Home'
 import Identify from './scenes/Identify'
@@ -45,15 +45,15 @@ const TabView = TabNavigator({
       headerStyle: { backgroundColor: appColors.blackish },
     }),
   },
-  // SubmitaBug: {
-  //   screen: ContactFormWithAttachment,
-  //   navigationOptions: () => ({
-  //     tabBarLabel: 'Submit a bug',
-  //     title: 'Kissing Bugs',
-  //     headerTintColor: appColors.yellow,
-  //     headerStyle: { backgroundColor: appColors.blackish },
-  //   }),
-  // },
+  SubmitaBug: {
+    screen: ContactFormWithAttachment,
+    navigationOptions: () => ({
+      tabBarLabel: 'Submit a bug',
+      title: 'Kissing Bugs',
+      headerTintColor: appColors.yellow,
+      headerStyle: { backgroundColor: appColors.blackish },
+    }),
+  },
 
 }, {
     tabBarOptions: {
