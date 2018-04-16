@@ -17,6 +17,7 @@ import {
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import styles from './styles.js'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import AppActions from '../../components/appActions.js';
 var appColors = require('../../components/appStyles.js')
 
@@ -44,11 +45,11 @@ export default class ContactForm extends Component {
         })
         this.sendXHRrequest();
       } else {
-        Alert.alert("Please make sure your email is correct");
+        Alert.alert("Attention", "Please make sure your email is correct");
       }
       
     } else {
-      Alert.alert("Please leave us your email and a message");
+      Alert.alert("Attention", "Please leave us your email and a message");
     }
 
   }

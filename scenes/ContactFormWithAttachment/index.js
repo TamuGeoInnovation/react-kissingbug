@@ -20,10 +20,20 @@ import { Provider } from 'react-native'
 import { StackNavigator, TabNavigator } from 'react-navigation';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+var ImagePicker = require('react-native-image-picker');
 import styles from './styles.js'
 import AppActions from '../../components/appActions.js';
 import { RadioGroup, RadioButton } from 'react-native-flexi-radio-button'
 var appColors = require('../../components/appStyles.js')
+
+var options = {
+  title: 'Provide your photo',
+  storageOptions: {
+    skipBackup: true,
+    path: 'images'
+  }
+};
+
 
 export class AHRadioButton extends Component {
   constructor(props) {
@@ -529,11 +539,22 @@ export default class ContactFormWithAttachment extends Component {
 
             <View
               style={styles.horizontal}>
-              <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }} onPress={() => this.props.navigation.navigate('TakePhoto', {
-                uriCallback: this.uriCallback.bind(this),
-                positionCallback: this.positionCallback.bind(this),
-                file: 'fileA'
-              })}>
+              <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }} 
+                onPress={() => {
+                  ImagePicker.showImagePicker(options, (response) => {
+                    console.log("response", response);
+                    if (response.didCancel) {
+                      console.log("User cancelled image picker");
+                    } else if (response.error) {
+                      console.log("Error", response.error);
+                    } else if (response.customButton) {
+                      console.log("User tapped custom button", response.customButton);
+                    } else {
+                      let source = { uri: response.uri };
+                      // let base64 = response.data;
+                    }
+                  } 
+                )}} >
                 {/* style={{ flex: 1, height: 180 }} */}
 
                 <Image
@@ -542,11 +563,22 @@ export default class ContactFormWithAttachment extends Component {
                   source={this.state.fileA}
                 />
               </TouchableOpacity>
-              <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }} onPress={() => this.props.navigation.navigate('TakePhoto', {
-                uriCallback: this.uriCallback.bind(this),
-                positionCallback: this.positionCallback.bind(this),
-                file: 'fileB'
-              })}>
+              <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }} 
+                onPress={() => {
+                    ImagePicker.showImagePicker(options, (response) => {
+                      console.log("response", response);
+                      if (response.didCancel) {
+                        console.log("User cancelled image picker");
+                      } else if (response.error) {
+                        console.log("Error", response.error);
+                      } else if (response.customButton) {
+                        console.log("User tapped custom button", response.customButton);
+                      } else {
+                        let source = { uri: response.uri };
+                        // let base64 = response.data;
+                      }
+                    } 
+                  )}} >
                 {/* style={{ flex: 1, height: 180 }} */}
                 <Image
                   style={{ flex: 1 }}
