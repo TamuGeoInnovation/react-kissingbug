@@ -505,24 +505,6 @@ export default class ContactFormWithAttachment extends Component {
               onChangeText={(text) => this.setState({ behavior: text })}
             />
             <Text style={styles.contactTextInput}>Was this bug found in a bedroom or is known to be associated with a human bite?</Text>
-            {/*<TextInput style={textInputStyle}
-              placeholder="Yes or no"
-              autoCapitalize='sentences'
-              keyboardType='default'
-              returnKeyType={returnKeyType}
-              blurOnSubmit={true}
-              placeholderTextColor={appColors.placeholderGrey}
-              underlineColorAndroid={appColors.placeholderGrey}
-              onChangeText={(text) => this.setState({ biteAssociated: text })}
-            />*/}
-
-            {/* <Picker
-              selectedValue={this.state.language}
-              onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-                <Picker.Item label="Yes" value="Yes" />
-                <Picker.Item label="No" value="No" />
-            </Picker> */}
-
             <RadioGroup
               style={styles.horizontalContainer}
               onSelect={(index, value) => this.setState({
@@ -541,13 +523,8 @@ export default class ContactFormWithAttachment extends Component {
 
             <View style={{ height: 16 }} />
 
-            <Text style={{
-              marginTop: 10,
-              marginBottom: 2,
-              fontSize: 18,
-              textAlign: 'center'
-            }}>
-              Submit a photo:
+            <Text style={styles.contactTextInput}>
+              You may submit up to two images:
           </Text>
 
             <View
