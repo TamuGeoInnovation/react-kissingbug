@@ -34,7 +34,6 @@ var options = {
   }
 };
 
-
 export class AHRadioButton extends Component {
   constructor(props) {
     super(props);

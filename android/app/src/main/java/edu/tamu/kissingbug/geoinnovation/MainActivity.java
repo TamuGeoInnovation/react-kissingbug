@@ -1,4 +1,4 @@
-package com.kissingbug;
+package edu.tamu.kissingbug.geoinnovation;
 
 import com.facebook.react.ReactActivity;
 

@@ -1,4 +1,5 @@
-package com.kissingbug;
+package edu.tamu.kissingbug.geoinnovation;
+
 
 import android.app.Application;
 
