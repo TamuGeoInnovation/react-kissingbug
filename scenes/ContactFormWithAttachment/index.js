@@ -158,6 +158,7 @@ export default class ContactFormWithAttachment extends Component {
       behavior: '',
       lat: '',
       lon: '',
+      hasAphoto: false,
       photoA: {
         uri: null,
         type: 'image/jpeg',
@@ -240,11 +241,11 @@ export default class ContactFormWithAttachment extends Component {
         })
         this.sendXHRrequest();
       } else {
-        Alert.alert("Please make sure your email is correct");
+        Alert.alert("Attention", "Please make sure your email is correct");
       }
       
     } else {
-      Alert.alert("Please leave us your email and a message");
+      Alert.alert("Attention", "Please leave us your email and a message");
     }
 
   }
@@ -260,6 +261,7 @@ export default class ContactFormWithAttachment extends Component {
             name: 'photoA.jpg',
           },
           fileAresize: 'cover',
+          hasAphoto: true,
         })
         break;
       case 'fileB':
@@ -271,6 +273,7 @@ export default class ContactFormWithAttachment extends Component {
             name: 'photoB.jpg',
           },
           fileBresize: 'cover',
+          hasAphoto: true,
         })
         break;
       default:
@@ -536,6 +539,7 @@ export default class ContactFormWithAttachment extends Component {
           </Text>
           <View style={styles.horizontalButton}>
             <Button
+              color={appColors.placeholderGrey}
               title={"Choose file A"}
               onPress={() => {
                 ImagePicker.showImagePicker(options, (response) => {
@@ -553,6 +557,7 @@ export default class ContactFormWithAttachment extends Component {
                 } 
               )}} />  
             <Button
+              color={appColors.placeholderGrey}
               title={"Choose file B"}
               onPress={() => {
                 ImagePicker.showImagePicker(options, (response) => {
@@ -570,7 +575,7 @@ export default class ContactFormWithAttachment extends Component {
                 } 
               )}} />
           </View>
-          <View style={this.state.fileA ? styles.horizontal : styles.horizontalContainerNoImage}>
+          <View style={this.state.hasAphoto ? styles.horizontal : styles.horizontalContainerNoImage}>
             <Image
               style={{ flex: 1 }}
               resizeMode={this.state.fileAresize}

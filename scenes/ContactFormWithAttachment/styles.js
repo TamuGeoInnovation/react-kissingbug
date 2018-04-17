@@ -34,6 +34,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     paddingLeft: 16,
     paddingRight: 16,
+    paddingTop: 12,
     backgroundColor: '#F5FCFF'
   },
   horizontalButton: {
@@ -155,9 +156,8 @@ export default StyleSheet.create({
     borderBottomColor: colors.blackish,
     flex: 1,
   },
-  fileText: {
-    color: colors.blackish,
-    fontSize: 14
+  fileButton: {
+    color: colors.placeholderGrey,
   }
 });
 
