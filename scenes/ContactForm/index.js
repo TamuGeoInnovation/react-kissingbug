@@ -35,6 +35,17 @@ export default class ContactForm extends Component {
 
   }
 
+  resetState() {
+    this.setState({
+      submitting: false,
+      firstName: '',
+      lastName: '',
+      email: '',
+      verifyEmail: '',
+      message: '',
+    })
+  }
+
   _onButtonPress() {
 
     if (this.state.email !== '' && this.state.message !== '') {
@@ -84,26 +95,28 @@ export default class ContactForm extends Component {
   }
 
   sendXHRrequest() {
-    // let contactUrl = 'http://165.91.120.49/kissingbug.tamu.edu/Rest/ContactWithAttachment/ReactPush/';
-    let contactUrl = 'https://kissingbug.tamu.edu/Rest/Contact/ReactPush/';
+    let contactUrl = 'http://165.91.49.135/kissingbug.tamu.edu/Rest/Contact/ReactPush/';
+    // let contactUrl = 'https://kissingbug.tamu.edu/Rest/Contact/ReactPush/';
     var request = new XMLHttpRequest();
     request.onreadystatechange = (e) => {
       if (request.readyState !== 4) {
         return;
       }
       if (request.status === 200) {
-        this.setState({
-          submitting: false,
-        })
+        // this.setState({
+        //   submitting: false,
+        // })
         Alert.alert('Message received', 'We appreciate your comments!');
         console.log('Success');
+        this.resetState();
       } else {
         console.log("Error on sendXHRrequest()");
         
-        this.setState({
-          submitting: false,
-        })
+        // this.setState({
+        //   submitting: false,
+        // })
         Alert.alert('Error', 'Something didn\'t go as planned, please try again later');
+        this.resetState();
       }
     }
     var formData = new FormData();
@@ -112,6 +125,7 @@ export default class ContactForm extends Component {
     formData.append('email', this.state.email);
     formData.append('message', this.state.message);
     request.open('POST', contactUrl, true);
+    request.timeout = 4000;
     request.send(formData);
 
 

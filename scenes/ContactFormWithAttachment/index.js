@@ -174,6 +174,17 @@ export default class ContactFormWithAttachment extends Component {
 
   }
 
+  resetState() {
+    this.setState({
+      submitting: false,
+      firstName: '',
+      lastName: '',
+      email: '',
+      verifyEmail: '',
+      message: '',
+    })
+  }
+
   checkEmailIsValid() {
     
     if (this.state.verifyEmail === this.state.email) {
@@ -299,14 +310,10 @@ export default class ContactFormWithAttachment extends Component {
       }
       if (request.status === 200) {
         console.log("Success");
-        this.setState({
-          submitting: false,
-        })
+        this.resetState();
         Alert.alert('Message received', 'We appreciate your comments!');
       } else {
-        this.setState({
-          submitting: false,
-        })
+        this.resetState();
         Alert.alert('Error', 'Something didn\'t go as planned, please try again later');
         console.log("Error on XHR request");
       }
