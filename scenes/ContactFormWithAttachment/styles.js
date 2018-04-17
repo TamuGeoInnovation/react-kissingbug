@@ -11,7 +11,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     paddingLeft: 16,
     paddingRight: 16,
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
   },
   /*horizontal: {
     // flexDirection: 'column',
@@ -27,13 +27,22 @@ export default StyleSheet.create({
 
   horizontal: {
     // flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     // alignItems: 'flex-start',
     minHeight: 120,
     flex: 1,
     flexDirection: 'row',
-    paddingLeft: 100,
-    paddingRight: 1,
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: '#F5FCFF'
+  },
+  horizontalButton: {
+    justifyContent: 'space-between',
+    paddingLeft: 36,
+    paddingRight: 36,
+    marginTop: 12,
+    flex: 1,
+    flexDirection: 'row',
     backgroundColor: '#F5FCFF'
   },
 
@@ -134,6 +143,9 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     marginRight: 32,
   },
+  horizontalContainerNoImage: {
+
+  },
   radioButtons: {
     flex: 1,
     flexDirection: 'row'
@@ -143,5 +155,9 @@ export default StyleSheet.create({
     borderBottomColor: colors.blackish,
     flex: 1,
   },
+  fileText: {
+    color: colors.blackish,
+    fontSize: 14
+  }
 });
 

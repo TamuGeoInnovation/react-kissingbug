@@ -158,8 +158,6 @@ export default class ContactFormWithAttachment extends Component {
       behavior: '',
       lat: '',
       lon: '',
-      fileA: require('../../react-native-assets/ic_add_photo.png'),
-      fileB: require('../../react-native-assets/ic_add_photo.png'),
       photoA: {
         uri: null,
         type: 'image/jpeg',
@@ -536,57 +534,56 @@ export default class ContactFormWithAttachment extends Component {
             <Text style={styles.contactTextInput}>
               You may submit up to two images:
           </Text>
+          <View style={styles.horizontalButton}>
+            <Button
+              title={"Choose file A"}
+              onPress={() => {
+                ImagePicker.showImagePicker(options, (response) => {
+                  console.log("response", response);
+                  if (response.didCancel) {
+                    console.log("User cancelled image picker");
+                  } else if (response.error) {
+                    console.log("Error", response.error);
+                  } else if (response.customButton) {
+                    console.log("User tapped custom button", response.customButton);
+                  } else {
+                    let source = { uri: response.uri };
+                    this.uriCallback(response.uri, "fileA");
+                  }
+                } 
+              )}} />  
+            <Button
+              title={"Choose file B"}
+              onPress={() => {
+                ImagePicker.showImagePicker(options, (response) => {
+                  console.log("response", response);
+                  if (response.didCancel) {
+                    console.log("User cancelled image picker");
+                  } else if (response.error) {
+                    console.log("Error", response.error);
+                  } else if (response.customButton) {
+                    console.log("User tapped custom button", response.customButton);
+                  } else {
+                    let source = { uri: response.uri };
+                    this.uriCallback(response.uri, "fileB");
+                  }
+                } 
+              )}} />
+          </View>
+          <View style={this.state.fileA ? styles.horizontal : styles.horizontalContainerNoImage}>
+            <Image
+              style={{ flex: 1 }}
+              resizeMode={this.state.fileAresize}
+              source={this.state.fileA}
+            />
+            <Image
+              style={{ flex: 1 }}
+              resizeMode={this.state.fileBresize}
+              source={this.state.fileB}
+            />
+          </View>
+            
 
-            <View
-              style={styles.horizontal}>
-              <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }} 
-                onPress={() => {
-                  ImagePicker.showImagePicker(options, (response) => {
-                    console.log("response", response);
-                    if (response.didCancel) {
-                      console.log("User cancelled image picker");
-                    } else if (response.error) {
-                      console.log("Error", response.error);
-                    } else if (response.customButton) {
-                      console.log("User tapped custom button", response.customButton);
-                    } else {
-                      let source = { uri: response.uri };
-                      // let base64 = response.data;
-                    }
-                  } 
-                )}} >
-                {/* style={{ flex: 1, height: 180 }} */}
-
-                <Image
-                  style={{ flex: 1 }}
-                  resizeMode={this.state.fileAresize}
-                  source={this.state.fileA}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity style={{ flex: 1, justifyContent: 'center' }} 
-                onPress={() => {
-                    ImagePicker.showImagePicker(options, (response) => {
-                      console.log("response", response);
-                      if (response.didCancel) {
-                        console.log("User cancelled image picker");
-                      } else if (response.error) {
-                        console.log("Error", response.error);
-                      } else if (response.customButton) {
-                        console.log("User tapped custom button", response.customButton);
-                      } else {
-                        let source = { uri: response.uri };
-                        // let base64 = response.data;
-                      }
-                    } 
-                  )}} >
-                {/* style={{ flex: 1, height: 180 }} */}
-                <Image
-                  style={{ flex: 1 }}
-                  resizeMode={this.state.fileBresize}
-                  source={this.state.fileB}
-                />
-              </TouchableOpacity>
-            </View>
             <View style={{ height: 16 }} />
             <Button style={styles.button}
               color={appColors.submitButtonGreen}
