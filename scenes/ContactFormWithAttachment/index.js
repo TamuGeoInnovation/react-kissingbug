@@ -28,9 +28,10 @@ var appColors = require('../../components/appStyles.js')
 
 var options = {
   title: 'Provide your photo',
+  mediaType: 'photo',  
   storageOptions: {
     skipBackup: true,
-    path: 'images'
+    path: 'images',
   }
 };
 
@@ -171,7 +172,34 @@ export default class ContactFormWithAttachment extends Component {
       fileAresize: 'contain',
       fileBresize: 'contain',
     }
+    
+  }
 
+  componentDidMount() {
+    // this.setupForTesting();
+    var options = {
+      enableHighAccuracy: false,
+      timeout: 30000, // should be 30 seconds
+      maximumAge: 5000 
+    };
+    navigator.geolocation.getCurrentPosition(this.positionCallback.bind(this), this.error, options)
+  }
+
+  setupForTesting() {
+    this.setState({
+      firstName: 'Aaron',
+      lastName: 'Harmon',
+      email: 'aplecore@gmail.com',
+      verifyEmail: 'aplecore@gmail.com',
+      message: 'Test',
+      time: '11:59:38',
+      date: '04/19/2018',
+      location: 'porch',
+      county: 'Brazos',
+      state: 'Texas',
+      biteAssociated: 'No',
+      behavior: 'Dead',
+    })
   }
 
   resetState() {
@@ -294,13 +322,16 @@ export default class ContactFormWithAttachment extends Component {
 
   positionCallback(position) {
     this.setState({
-      lat: position.latitude,
-      lon: position.longitude,
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
     })
+  }
+  error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
   }
 
   sendXHRrequest() {
-    // let contactUrl = 'http://165.91.120.42/kissingbugd.tamu.edu/Rest/ContactWithAttachment/ReactPush/';
+    // let contactUrl = 'http://165.91.49.196/kissingbug.tamu.edu/Rest/ContactWithAttachment/ReactPush/';
     let contactUrl = 'https://kissingbug.tamu.edu/Rest/ContactWithAttachment/ReactPush/';
     var request = new XMLHttpRequest();
     request.onreadystatechange = (e) => {
@@ -349,7 +380,6 @@ export default class ContactFormWithAttachment extends Component {
   }
 
   render() {
-    debugger
     var emailsUnderLineColor = appColors.placeholderGrey
     if (this.state.email !== this.state.verifyEmail) {
       emailsUnderLineColor = appColors.errorRed

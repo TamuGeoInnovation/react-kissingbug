@@ -73,29 +73,8 @@ export default class ContactForm extends Component {
     return false;
   }
 
-  async sendContactMessage(body) {
-    // let contactUrl = 'http://165.91.120.42/kissingbug.tamu.edu/Rest/ContactWithAttachment/Push/';
-    let contactUrl = 'https://kissingbug.tamu.edu/Rest/Contact/ReactPush/';
-    let postContentType = 'application/x-www-form-urlencoded';
-    try {
-      let response = await fetch(contactUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': postContentType
-        },
-        body: body
-      }).then((response1) => {
-        console.log(response1);
-      })
-    } catch (error) {
-      if (error !== undefined) {
-        console.error(error);
-      }
-    }
-  }
-
   sendXHRrequest() {
-    let contactUrl = 'http://165.91.49.135/kissingbug.tamu.edu/Rest/Contact/ReactPush/';
+    let contactUrl = 'http://165.91.49.196/kissingbug.tamu.edu/Rest/Contact/ReactPush/';
     // let contactUrl = 'https://kissingbug.tamu.edu/Rest/Contact/ReactPush/';
     var request = new XMLHttpRequest();
     request.onreadystatechange = (e) => {
@@ -138,7 +117,7 @@ export default class ContactForm extends Component {
     } else {
       emailsUnderLineColor = appColors.placeholderGrey
     }
-    let returnKeyType = 'default';
+    let returnKeyType = 'next';
     if (this.state.submitting) {
       return (<ActivityIndicator
         animating={this.state.submitting}

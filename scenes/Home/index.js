@@ -56,6 +56,12 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
   }
+  
+  componentWillMount() {
+    if (Platform.OS === 'android') {
+      this.requestPermissions();
+    }
+  }
 
   async requestPermissions() {
     const neededPermissions = ['android.permission.CAMERA', 'android.permission.WRITE_EXTERNAL_STORAGE', 'android.permission.ACCESS_FINE_LOCATION'];
@@ -114,9 +120,7 @@ export default class Home extends Component {
   }
 
   render() {
-    if (Platform.OS === 'android') {
-      this.requestPermissions();
-    }
+
     
 
     const images = {
