@@ -100,9 +100,9 @@ android {
     defaultConfig {
         applicationId "edu.tamu.kissingbug.geoinnovation"
         minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 3
-        versionName "1.2"
+        targetSdkVersion 23
+        versionCode 4
+        versionName "1.1"
         ndk {
             abiFilters "armeabi-v7a"
         }
@@ -114,7 +114,6 @@ android {
             keyAlias 'tamu-geoinnovation-key-alias'
             keyPassword 'TTT@mu2017'
         }
-
     }
     splits {
         abi {
