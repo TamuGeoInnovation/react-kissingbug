@@ -153,7 +153,6 @@ export default class Home extends Component {
         <StatusBar
           backgroundColor="#F5FCFF"
           barStyle="dark-content"
-          setTranslucent={false}
         />
         <SectionList
           style={styles.section}

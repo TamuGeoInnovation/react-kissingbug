@@ -15,6 +15,14 @@ export default StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 4
   },
+  iosHeader: {
+    fontSize: 22,
+    fontStyle: "normal",
+    fontWeight: "bold",
+    backgroundColor: '#F5FCFF',
+    paddingTop: 20,
+    paddingBottom: 4
+  },
   body: {
     fontSize: 14,
     fontStyle: "normal",

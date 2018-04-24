@@ -13,6 +13,14 @@ export default StyleSheet.create({
     paddingRight: 16,
     backgroundColor: '#F5FCFF',
   },
+  iosHeader: {
+    fontSize: 22,
+    fontStyle: "normal",
+    fontWeight: "bold",
+    backgroundColor: '#F5FCFF',
+    paddingTop: 20,
+    paddingBottom: 4
+  },
   /*horizontal: {
     // flexDirection: 'column',
     justifyContent: 'flex-start',

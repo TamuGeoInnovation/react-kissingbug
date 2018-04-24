@@ -36,6 +36,14 @@ export default StyleSheet.create({
   gray: {
     backgroundColor: '#cccccc',
   },
+  iosHeader: {
+    fontSize: 22,
+    fontStyle: "normal",
+    fontWeight: "bold",
+    backgroundColor: '#F5FCFF',
+    paddingTop: 20,
+    paddingBottom: 4
+  },
 
 });
 
