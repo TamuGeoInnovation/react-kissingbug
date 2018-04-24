@@ -10,11 +10,13 @@ var appColors = require('./components/appStyles.js')
 
 import ContactForm from './scenes/ContactForm'
 import ContactFormWithAttachment from './scenes/ContactFormWithAttachment'
-// import PhotoLibrary from './scenes/PhotoLibrary'
 import Home from './scenes/Home'
 import Identify from './scenes/Identify'
-// import TakePhoto from './scenes/TakePhoto'
 
+let aboutIcon = require('./react-native-assets/home/ic_home_white.png')
+let identifyIcon = require('./react-native-assets/identify/ic_search_white.png')
+let emailIcon = require('./react-native-assets/email/ic_email_white.png')
+let sendIcon = require('./react-native-assets/send/ic_send_white.png')
 
 
 const TabView = TabNavigator({
@@ -23,6 +25,7 @@ const TabView = TabNavigator({
     navigationOptions: () => ({
       tabBarLabel: 'About',
       title: 'Kissing Bugs',
+      tabBarIcon: ({tintColor}) => { return <Image source={aboutIcon} /> },
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
@@ -32,6 +35,7 @@ const TabView = TabNavigator({
     navigationOptions: () => ({
       tabBarLabel: 'Found a bug?',
       title: 'Kissing Bugs',
+      tabBarIcon: ({tintColor}) => { return <Image source={identifyIcon} /> },
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
@@ -41,6 +45,7 @@ const TabView = TabNavigator({
     navigationOptions: () => ({
       tabBarLabel: 'Contact us',
       title: 'Kissing Bugs',
+      tabBarIcon: ({tintColor}) => { return <Image source={emailIcon} /> },
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
@@ -50,6 +55,7 @@ const TabView = TabNavigator({
     navigationOptions: () => ({
       tabBarLabel: 'Submit a bug',
       title: 'Kissing Bugs',
+      tabBarIcon: ({tintColor}) => { return <Image source={sendIcon} /> },
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
