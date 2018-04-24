@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import {
   AppRegistry,
+  Image,
   View,
-  PermissionsAndroid,
-
 } from 'react-native';
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { TabNavigator } from 'react-navigation';
 var appColors = require('./components/appStyles.js')
 
 import ContactForm from './scenes/ContactForm'
@@ -18,14 +17,13 @@ let identifyIcon = require('./react-native-assets/identify/ic_search_white.png')
 let emailIcon = require('./react-native-assets/email/ic_email_white.png')
 let sendIcon = require('./react-native-assets/send/ic_send_white.png')
 
-
 const TabView = TabNavigator({
   Home: {
     screen: Home,
     navigationOptions: () => ({
       tabBarLabel: 'About',
       title: 'Kissing Bugs',
-      tabBarIcon: ({tintColor}) => { return <Image source={aboutIcon} /> },
+      tabBarIcon: ({focused, tintColor}) => { return (<Image source={aboutIcon} /> )},
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
@@ -35,7 +33,7 @@ const TabView = TabNavigator({
     navigationOptions: () => ({
       tabBarLabel: 'Found a bug?',
       title: 'Kissing Bugs',
-      tabBarIcon: ({tintColor}) => { return <Image source={identifyIcon} /> },
+      tabBarIcon: ({focused, tintColor}) => { return (<Image source={identifyIcon} /> )},
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
@@ -45,7 +43,7 @@ const TabView = TabNavigator({
     navigationOptions: () => ({
       tabBarLabel: 'Contact us',
       title: 'Kissing Bugs',
-      tabBarIcon: ({tintColor}) => { return <Image source={emailIcon} /> },
+    tabBarIcon: ({focused, tintColor}) => { return ( <Image source={emailIcon} /> ) },
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
@@ -55,7 +53,7 @@ const TabView = TabNavigator({
     navigationOptions: () => ({
       tabBarLabel: 'Submit a bug',
       title: 'Kissing Bugs',
-      tabBarIcon: ({tintColor}) => { return <Image source={sendIcon} /> },
+      tabBarIcon: ({focused, tintColor}) => { return (<Image source={sendIcon} /> )},
       headerTintColor: appColors.yellow,
       headerStyle: { backgroundColor: appColors.blackish },
     }),
@@ -64,6 +62,8 @@ const TabView = TabNavigator({
 }, {
     tabBarOptions: {
       activeTintColor: appColors.yellow,
+      showLabel: true,
+      showIcon: true,
       labelStyle: {
         fontSize: 12,
       },
@@ -75,26 +75,4 @@ const TabView = TabNavigator({
       },
     }
   })
-
-
-// const App = StackNavigator({
-//   TabView: {
-//     screen: TabView,
-//     headerTintColor: appColors.blackish
-//   },
-//   TakePhoto: {
-//     screen: TakePhoto,
-//     navigationOptions: {
-//       title: 'Take a photo',
-//       headerTintColor: appColors.yellow,
-//       headerStyle: { backgroundColor: appColors.blackish },
-//     },
-//   }
-// }, {
-//     cardStyle: {
-//       backgroundColor: appColors.blackish,
-//     }
-//   })
-
-// AppRegistry.registerComponent('KissingBug', () => App);
 AppRegistry.registerComponent('KissingBug', () => TabView);

@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   View,
-  PermissionsAndroid,
-
 } from 'react-native';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 var appColors = require('./components/appStyles.js')
 
 import ContactForm from './scenes/ContactForm'
 import ContactFormWithAttachment from './scenes/ContactFormWithAttachment'
-// import PhotoLibrary from './scenes/PhotoLibrary'
 import Home from './scenes/Home'
 import Identify from './scenes/Identify'
-// import TakePhoto from './scenes/TakePhoto'
-
-
 
 const TabView = TabNavigator({
   Home: {
@@ -70,25 +64,4 @@ const TabView = TabNavigator({
     }
   })
 
-
-// const App = StackNavigator({
-//   TabView: {
-//     screen: TabView,
-//     headerTintColor: appColors.blackish
-//   },
-//   TakePhoto: {
-//     screen: TakePhoto,
-//     navigationOptions: {
-//       title: 'Take a photo',
-//       headerTintColor: appColors.yellow,
-//       headerStyle: { backgroundColor: appColors.blackish },
-//     },
-//   }
-// }, {
-//     cardStyle: {
-//       backgroundColor: appColors.blackish,
-//     }
-//   })
-
-// AppRegistry.registerComponent('KissingBug', () => App);
 AppRegistry.registerComponent('KissingBug', () => TabView);

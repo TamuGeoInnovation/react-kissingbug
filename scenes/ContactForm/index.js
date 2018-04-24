@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Button,
   Text,
+  Image,
   TextInput,
   SectionList,
   StatusBar,
