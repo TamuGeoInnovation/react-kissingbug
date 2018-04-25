@@ -399,10 +399,14 @@ export default class ContactFormWithAttachment extends Component {
     } else {
       return (
 
-        <KeyboardAwareScrollView>
+        <KeyboardAwareScrollView
+          style={{
+            backgroundColor: "#F5FCFF"
+          }}
+        >
           <View style={styles.container} >
             <Text style={{
-              marginTop: 16,
+              marginTop: 24,
               marginBottom: 8,
             }}>
               In order to better provide you with assistance, please fill out the following information as accurately as possible.
@@ -495,6 +499,7 @@ export default class ContactFormWithAttachment extends Component {
               isVisible={this.state.isTimePickerVisible}
               onConfirm={this._handleTimePicked}
               onCancel={this._hideTimePicker}
+              titleIOS={"Pick a time"}
               minimumDate={this._getMinDate()}
               maximumDate={this._getMaxDate()}
               mode={'time'}

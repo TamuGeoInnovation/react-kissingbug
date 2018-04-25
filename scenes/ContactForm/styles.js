@@ -11,7 +11,7 @@ export default StyleSheet.create({
     backgroundColor: '#F5FCFF'
   },
   label: {
-    marginTop: 16,
+    marginTop: 24,
     marginBottom: 8,
   },
   contactTextInput: {

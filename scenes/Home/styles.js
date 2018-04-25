@@ -6,7 +6,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     paddingLeft: 16,
     paddingRight: 16,
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
+    zIndex: 3,
   },
   horizontal: {
     flex: 1,
@@ -28,7 +29,7 @@ export default StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "bold",
     backgroundColor: '#F5FCFF',
-    paddingTop: 20,
+    paddingTop: 24,
     paddingBottom: 4
   },
   body: {

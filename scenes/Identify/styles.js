@@ -20,14 +20,14 @@ export default StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "bold",
     backgroundColor: '#F5FCFF',
-    paddingTop: 20,
+    paddingTop: 24,
     paddingBottom: 4
   },
   body: {
     fontSize: 14,
     fontStyle: "normal",
     fontWeight: "normal",
-    marginBottom: 16,
+    marginBottom: 8,
   },
   scrollText: {
     fontSize: 14,
@@ -52,7 +52,7 @@ export default StyleSheet.create({
     marginTop: 24,
   },
   section: {
-    marginBottom: 16,
+    marginBottom: 0,
   },
   image: {
     marginRight: 4

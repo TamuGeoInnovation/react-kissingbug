@@ -168,7 +168,7 @@ export default class Identify extends Component {
     return <Text style={styles.scrollText}>{item.body}</Text>
   }
   renderSectionHeader = ({ section }) => {
-    return <Text style={styles.header}>{section.title}</Text>
+    return <Text style={styles.iosHeader}>{section.title}</Text>
   }
   renderItemWithImages = ({ item }) => {
     return <BugGallery />
@@ -205,8 +205,8 @@ export default class Identify extends Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor="#232323"
-          barStyle="light-content"
+          backgroundColor="#F5FCFF"
+          barStyle="dark-content"
         />
         <SectionList
           style={styles.section}
