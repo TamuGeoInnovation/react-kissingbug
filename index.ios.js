@@ -4,7 +4,7 @@ import {
   Image,
   View,
 } from 'react-native';
-import { TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator } from 'react-navigation';
 var appColors = require('./components/appStyles.js')
 
 import ContactForm from './scenes/ContactForm'
@@ -75,4 +75,15 @@ const TabView = TabNavigator({
       },
     }
   })
-AppRegistry.registerComponent('KissingBug', () => TabView);
+
+  const App = StackNavigator({
+    TabView: {
+      screen: TabView,
+      headerTintColor: appColors.blackish
+    }
+  }, {
+    cardStyle: {
+      backgroundColor: appColors.blackish
+    }
+  })
+AppRegistry.registerComponent('KissingBug', () => App);

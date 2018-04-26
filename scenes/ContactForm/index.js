@@ -75,7 +75,7 @@ export default class ContactForm extends Component {
   }
 
   sendXHRrequest() {
-    // let contactUrl = 'http://165.91.48.222/kissingbug.tamu.edu/Rest/Contact/ReactPush/';
+    // let contactUrl = 'http://165.91.48.103/kissingbug.tamu.edu/Rest/Contact/ReactPush/';
     let contactUrl = 'https://kissingbug.tamu.edu/Rest/Contact/ReactPush/';
     var request = new XMLHttpRequest();
     request.onreadystatechange = (e) => {

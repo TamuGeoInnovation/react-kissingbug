@@ -152,7 +152,7 @@ export default class Home extends Component {
       <View style={styles.container}>
         <StatusBar
           backgroundColor="#F5FCFF"
-          barStyle="dark-content"
+          barStyle="light-content"
         />
         <SectionList
           style={styles.section}

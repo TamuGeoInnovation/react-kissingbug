@@ -331,7 +331,7 @@ export default class ContactFormWithAttachment extends Component {
   }
 
   sendXHRrequest() {
-    // let contactUrl = 'http://165.91.48.222/kissingbug.tamu.edu/Rest/ContactWithAttachment/ReactPush/';
+    // let contactUrl = 'http://165.91.48.103/kissingbug.tamu.edu/Rest/ContactWithAttachment/ReactPush/';
     let contactUrl = 'https://kissingbug.tamu.edu/Rest/ContactWithAttachment/ReactPush/';
     var request = new XMLHttpRequest();
     request.onreadystatechange = (e) => {
@@ -340,10 +340,12 @@ export default class ContactFormWithAttachment extends Component {
         return;
       }
       if (request.status === 200) {
+        debugger
         console.log("Success");
         this.resetState();
         Alert.alert('Message received', 'We appreciate your comments!');
       } else {
+        debugger
         this.resetState();
         Alert.alert('Error', 'Something didn\'t go as planned, please try again later');
         console.log("Error on XHR request");

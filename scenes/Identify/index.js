@@ -206,7 +206,7 @@ export default class Identify extends Component {
       <View style={styles.container}>
         <StatusBar
           backgroundColor="#F5FCFF"
-          barStyle="dark-content"
+          barStyle="light-content"
         />
         <SectionList
           style={styles.section}

@@ -7,7 +7,6 @@ export default StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     backgroundColor: '#F5FCFF',
-    zIndex: 3,
   },
   horizontal: {
     flex: 1,
