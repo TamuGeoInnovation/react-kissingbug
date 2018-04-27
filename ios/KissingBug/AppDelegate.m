@@ -16,8 +16,20 @@
 {
   NSURL *jsCodeLocation;
 
+//  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+//
+//  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
+//  launchScreenView.frame = self.window.bounds;
+//  RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
+//                                                        moduleName:@"kissingbug"
+//                                                 initialProperties:nil
+//                                                     launchOptions:launchOptions];
+//
+//  rootView.loadingView = launchScreenView;
+  
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
+  
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"KissingBug"
                                                initialProperties:nil
