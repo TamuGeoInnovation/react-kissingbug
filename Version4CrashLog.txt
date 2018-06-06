@@ -1,0 +1,11 @@
+Version 4 crash log
+
+java.lang.RuntimeException: 
+  at com.facebook.react.bridge.CatalystInstanceImpl.jniLoadScriptFromAssets (Native Method)
+  at com.facebook.react.bridge.CatalystInstanceImpl.loadScriptFromAssets (CatalystInstanceImpl.java:216)
+  at com.facebook.react.bridge.JSBundleLoader$1.loadScript (JSBundleLoader.java:31)
+  at com.facebook.react.bridge.CatalystInstanceImpl.runJSBundle (CatalystInstanceImpl.java:234)
+  at com.facebook.react.ReactInstanceManager.createReactContext (ReactInstanceManager.java:1114)
+  at com.facebook.react.ReactInstanceManager.access$900 (ReactInstanceManager.java:113)
+  at com.facebook.react.ReactInstanceManager$5.run (ReactInstanceManager.java:911)
+  at java.lang.Thread.run (Thread.java:761)

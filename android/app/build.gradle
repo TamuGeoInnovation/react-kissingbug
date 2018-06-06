@@ -109,10 +109,13 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file("tamu-geoinnovation.keystore")
-            storePassword 'TTT@mu2017'
-            keyAlias 'tamu-geoinnovation-key-alias'
-            keyPassword 'TTT@mu2017'
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+            v1SigningEnabled true
         }
     }
     splits {
@@ -128,7 +131,8 @@ android {
         release {
 //            minifyEnabled enableProguardInReleaseBuilds
             minifyEnabled true
-            shrinkResources true
+            shrinkResources false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
